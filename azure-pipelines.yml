@@ -24,7 +24,7 @@ stages:
     - task: Docker@2
       inputs:
         containerRegistry: 'dockerhubconn'
-        repository: 'test'
+        repository: 'danrub78/test'
         command: 'buildAndPush'
         Dockerfile: '**/Dockerfile'
         tags: |
