@@ -2,6 +2,15 @@ provider "azurerm" {
     features {}
 }
 
+terraform {
+  backend "azurerm" {
+      resource_group_name = "the_rg_on_azure"
+      storage_account_name = "the_storage_account_nome"
+      container_name = "the_blob_container_name"
+      key = "terraform.tfstate"
+  }
+}
+
 resource "azurerm_resource_group" "docker_mvc_rg" {
   name     = "docker-mvc-resources"
   location = "West Europe"
