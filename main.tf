@@ -11,6 +11,12 @@ terraform {
   }
 }
 
+#This variable is the env var defined in the azure-pipeline.yml file
+variable "imagebuild" {
+  type = string
+  description = "the build number used to tag the docker image"
+}
+
 resource "azurerm_resource_group" "docker_mvc_rg" {
   name     = "docker-mvc-resources"
   location = "West Europe"
@@ -26,7 +32,7 @@ resource "azurerm_container_group" "docker_mvc_cg" {
 
   container {
     name   = "docker-mvc-app"
-    image  = "danrub78/test:firstmvcpush"
+    image  = "danrub78/test:${var.imagebuild}"
     cpu    = "1"
     memory = "1"
 
