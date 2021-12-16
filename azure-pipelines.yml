@@ -38,7 +38,7 @@ stages:
       pool:
         vmImage: MBP-di-Dante
       variables:
-      - group: TerraformEnvVar
+      - group: TerraformEnvVars
       steps:
       - script: | 
          set -e 
